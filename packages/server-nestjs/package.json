@@ -1,0 +1,50 @@
+{
+  "name": "@torrin/server-nestjs",
+  "version": "0.1.0",
+  "description": "NestJS integration for Torrin upload engine",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@torrin/core": "workspace:*",
+    "@torrin/server": "workspace:*"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "reflect-metadata": "^0.1.13 || ^0.2.0",
+    "rxjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^10.3.0",
+    "@nestjs/core": "^10.3.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "reflect-metadata": "^0.2.1",
+    "rxjs": "^7.8.1",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.0"
+  },
+  "sideEffects": false,
+  "license": "Apache-2.0"
+}
