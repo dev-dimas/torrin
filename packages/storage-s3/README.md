@@ -2,7 +2,7 @@
 
 S3-compatible storage driver for Torrin upload engine.
 
-**Size:** 5.5 KB (1.5 KB gzipped)
+**Size:** 5.3 KB minified (1.4 KB gzipped) · Runtime only
 
 Works with AWS S3, MinIO, Cloudflare R2, DigitalOcean Spaces, and other S3-compatible services.
 

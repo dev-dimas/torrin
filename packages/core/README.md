@@ -2,7 +2,7 @@
 
 Shared types, error definitions, constants, and utilities for Torrin upload engine.
 
-**Size:** 5.3 KB (1.9 KB gzipped)
+**Size:** 5.1 KB minified (1.8 KB gzipped) · Runtime only
 
 ## Installation
 

@@ -2,7 +2,7 @@
 
 Core server logic for Torrin upload engine. Framework-agnostic.
 
-**Size:** 8.9 KB (2.1 KB gzipped)
+**Size:** 8.7 KB minified (2.0 KB gzipped) · Runtime only
 
 ## Installation
 

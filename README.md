@@ -18,17 +18,22 @@ A modular, TypeScript-first upload engine for large files with resumable, chunke
 
 ## Packages
 
-| Package                  | Description                     | Size (min) | Size (gzip) |
-| ------------------------ | ------------------------------- | ---------- | ----------- |
-| `@torrin-kit/core`           | Shared types, errors, utilities | 5.3 KB     | 1.9 KB      |
-| `@torrin-kit/client`         | Client-side upload library      | 15.9 KB    | 3.9 KB      |
-| `@torrin-kit/server`         | Core server logic               | 8.9 KB     | 2.1 KB      |
-| `@torrin-kit/server-express` | Express.js integration          | 3.9 KB     | 1.1 KB      |
-| `@torrin-kit/server-nestjs`  | NestJS integration              | 7.0 KB     | 2.0 KB      |
-| `@torrin-kit/storage-local`  | Local filesystem driver         | 4.0 KB     | 1.1 KB      |
-| `@torrin-kit/storage-s3`     | S3-compatible driver            | 5.5 KB     | 1.5 KB      |
+| Package                  | Description                     | Size (minified) | Size (gzipped) |
+| ------------------------ | ------------------------------- | --------------- | -------------- |
+| `@torrin-kit/core`           | Shared types, errors, utilities | 5.1 KB     | 1.8 KB      |
+| `@torrin-kit/client`         | Client-side upload library      | 15.5 KB    | 3.8 KB      |
+| `@torrin-kit/server`         | Core server logic               | 8.7 KB     | 2.0 KB      |
+| `@torrin-kit/server-express` | Express.js integration          | 3.7 KB     | 1.0 KB      |
+| `@torrin-kit/server-nestjs`  | NestJS integration              | 6.8 KB     | 1.9 KB      |
+| `@torrin-kit/storage-local`  | Local filesystem driver         | 3.8 KB     | 1.1 KB      |
+| `@torrin-kit/storage-s3`     | S3-compatible driver            | 5.3 KB     | 1.4 KB      |
 
-**Total bundle size (client only):** ~5.8 KB gzipped (core + client)
+**Size notes:**
+- **Size (min)** = Minified JavaScript code only (what gets executed)
+- **Size (gzip)** = What you download (compressed for transfer)
+- **npm unpacked** = Includes source maps & TypeScript declarations (larger, not downloaded by default)
+
+**Total bundle size (client only):** ~5.6 KB gzipped (core + client)
 
 ## Table of Contents
 

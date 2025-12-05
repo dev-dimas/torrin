@@ -2,7 +2,7 @@
 
 Express.js integration for Torrin upload engine.
 
-**Size:** 3.9 KB (1.1 KB gzipped)
+**Size:** 3.7 KB minified (1.0 KB gzipped) · Runtime only
 
 ## Installation
 

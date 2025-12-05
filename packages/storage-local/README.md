@@ -2,7 +2,7 @@
 
 Local filesystem storage driver for Torrin upload engine.
 
-**Size:** 4.0 KB (1.1 KB gzipped)
+**Size:** 3.8 KB minified (1.1 KB gzipped) · Runtime only
 
 ## Installation
 

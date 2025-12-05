@@ -2,7 +2,7 @@
 
 Client-side upload library for Torrin. Works in browsers and Node.js with resumable, chunked uploads.
 
-**Size:** 15.9 KB (3.9 KB gzipped)
+**Size:** 15.5 KB minified (3.8 KB gzipped) · Runtime only
 
 ## Installation
 

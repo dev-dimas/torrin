@@ -2,7 +2,7 @@
 
 NestJS integration for Torrin upload engine.
 
-**Size:** 7.0 KB (2.0 KB gzipped)
+**Size:** 6.8 KB minified (1.9 KB gzipped) · Runtime only
 
 ## Installation
 
