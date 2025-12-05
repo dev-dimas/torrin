@@ -16,6 +16,7 @@ export interface TorrinUploadSession {
   status: UploadStatus;
   createdAt: Date;
   updatedAt: Date;
+  expiresAt?: Date;
 }
 
 export interface TorrinSessionInitInput {
