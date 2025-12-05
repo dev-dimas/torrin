@@ -1,4 +1,4 @@
-import type { TorrinUploadSession, TorrinStorageLocation } from "@torrin/core";
+import type { TorrinUploadSession, TorrinStorageLocation } from "@torrin-kit/core";
 import type { Readable } from "node:stream";
 
 export interface TorrinStorageDriver {

@@ -1,4 +1,4 @@
-# @torrin/storage-local
+# @torrin-kit/storage-local
 
 Local filesystem storage driver for Torrin upload engine.
 
@@ -7,13 +7,13 @@ Local filesystem storage driver for Torrin upload engine.
 ## Installation
 
 ```bash
-npm install @torrin/storage-local
+npm install @torrin-kit/storage-local
 ```
 
 ## Usage
 
 ```typescript
-import { createLocalStorageDriver } from "@torrin/storage-local";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
 
 const storage = createLocalStorageDriver({
   baseDir: "./uploads",
@@ -117,9 +117,9 @@ After completion, returns:
 
 ```typescript
 import express from "express";
-import { createTorrinExpressRouter } from "@torrin/server-express";
-import { createLocalStorageDriver } from "@torrin/storage-local";
-import { createInMemoryStore } from "@torrin/server";
+import { createTorrinExpressRouter } from "@torrin-kit/server-express";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
+import { createInMemoryStore } from "@torrin-kit/server";
 
 const app = express();
 app.use(express.json());
@@ -183,8 +183,8 @@ await cleanupOrphanedChunks("./uploads/.temp", 24 * 60 * 60 * 1000);
 ## TypeScript
 
 ```typescript
-import type { LocalStorageOptions } from "@torrin/storage-local";
-import type { TorrinStorageDriver } from "@torrin/server";
+import type { LocalStorageOptions } from "@torrin-kit/storage-local";
+import type { TorrinStorageDriver } from "@torrin-kit/server";
 ```
 
 ## License

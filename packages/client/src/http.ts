@@ -1,4 +1,4 @@
-import { TorrinError, HTTP_HEADERS } from "@torrin/core";
+import { TorrinError, HTTP_HEADERS } from "@torrin-kit/core";
 import type { InitUploadResponse, ChunkUploadResponse, StatusResponse } from "./types.js";
 
 export interface HttpClientOptions {

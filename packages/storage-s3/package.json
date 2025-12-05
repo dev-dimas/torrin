@@ -1,5 +1,5 @@
 {
-  "name": "@torrin/storage-s3",
+  "name": "@torrin-kit/storage-s3",
   "version": "0.8.0",
   "description": "S3-compatible storage driver for Torrin upload engine",
   "type": "module",
@@ -28,8 +28,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@torrin/core": "workspace:*",
-    "@torrin/server": "workspace:*"
+    "@torrin-kit/core": "workspace:*",
+    "@torrin-kit/server": "workspace:*"
   },
   "peerDependencies": {
     "@aws-sdk/client-s3": "^3.0.0"

@@ -7,5 +7,5 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   treeshake: true,
-  external: ["@torrin/core", "@torrin/server", "@aws-sdk/client-s3"],
+  external: ["@torrin-kit/core", "@torrin-kit/server", "@aws-sdk/client-s3"],
 });

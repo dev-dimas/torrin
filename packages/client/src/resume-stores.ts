@@ -1,4 +1,4 @@
-import type { TorrinUploadState } from "@torrin/core";
+import type { TorrinUploadState } from "@torrin-kit/core";
 import type { TorrinResumeStore } from "./types.js";
 
 const STORAGE_PREFIX = "torrin_upload_";

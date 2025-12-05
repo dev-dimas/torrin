@@ -1,4 +1,4 @@
-import type { TorrinProgress, TorrinUploadState, TorrinCompleteResult } from "@torrin/core";
+import type { TorrinProgress, TorrinUploadState, TorrinCompleteResult } from "@torrin-kit/core";
 
 export interface TorrinClientOptions {
   endpoint: string;

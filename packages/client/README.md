@@ -1,4 +1,4 @@
-# @torrin/client
+# @torrin-kit/client
 
 Client-side upload library for Torrin. Works in browsers and Node.js with resumable, chunked uploads.
 
@@ -7,7 +7,7 @@ Client-side upload library for Torrin. Works in browsers and Node.js with resuma
 ## Installation
 
 ```bash
-npm install @torrin/client
+npm install @torrin-kit/client
 ```
 
 ## Quick Start
@@ -15,7 +15,7 @@ npm install @torrin/client
 ### Browser
 
 ```typescript
-import { createTorrinClient } from "@torrin/client";
+import { createTorrinClient } from "@torrin-kit/client";
 
 const torrin = createTorrinClient({
   endpoint: "/torrin/uploads",
@@ -31,7 +31,7 @@ const result = await upload.start();
 
 ```typescript
 import { readFileSync } from "fs";
-import { createTorrinClient } from "@torrin/client";
+import { createTorrinClient } from "@torrin-kit/client";
 
 const torrin = createTorrinClient({
   endpoint: "http://localhost:3000/torrin/uploads",
@@ -159,7 +159,7 @@ cancelBtn.onclick = () => upload.cancel();
 import {
   createTorrinClient,
   createLocalStorageResumeStore,
-} from "@torrin/client";
+} from "@torrin-kit/client";
 
 const torrin = createTorrinClient({
   endpoint: "/torrin/uploads",
@@ -231,7 +231,7 @@ console.log(result.metadata); // Same metadata returned
 ### Error handling
 
 ```typescript
-import { TorrinError } from "@torrin/core";
+import { TorrinError } from "@torrin-kit/core";
 
 upload.on("error", (error) => {
   if (error instanceof TorrinError) {
@@ -300,7 +300,7 @@ const torrin = createTorrinClient({
 ### localStorage (browser)
 
 ```typescript
-import { createLocalStorageResumeStore } from "@torrin/client";
+import { createLocalStorageResumeStore } from "@torrin-kit/client";
 
 const torrin = createTorrinClient({
   resumeStore: createLocalStorageResumeStore(),
@@ -310,7 +310,7 @@ const torrin = createTorrinClient({
 ### In-memory (testing)
 
 ```typescript
-import { createInMemoryResumeStore } from "@torrin/client";
+import { createInMemoryResumeStore } from "@torrin-kit/client";
 
 const torrin = createTorrinClient({
   resumeStore: createInMemoryResumeStore(),
@@ -327,9 +327,9 @@ import type {
   CreateUploadOptions,
   TorrinResumeStore,
   UploadClientStatus,
-} from "@torrin/client";
+} from "@torrin-kit/client";
 
-import type { TorrinProgress, TorrinCompleteResult } from "@torrin/core";
+import type { TorrinProgress, TorrinCompleteResult } from "@torrin-kit/core";
 ```
 
 ## License

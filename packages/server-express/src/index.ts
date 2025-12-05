@@ -1,6 +1,6 @@
 import { Router, type Request, type Response, type NextFunction } from "express";
-import { TorrinError, HTTP_HEADERS, type TorrinSessionInitInput } from "@torrin/core";
-import { TorrinService, type TorrinStorageDriver, type TorrinUploadStore } from "@torrin/server";
+import { TorrinError, HTTP_HEADERS, type TorrinSessionInitInput } from "@torrin-kit/core";
+import { TorrinService, type TorrinStorageDriver, type TorrinUploadStore } from "@torrin-kit/server";
 
 export interface TorrinExpressOptions {
   basePath?: string;
@@ -157,4 +157,4 @@ export function createTorrinExpressRouter(options: TorrinExpressOptions): Router
   return router;
 }
 
-export { TorrinService } from "@torrin/server";
+export { TorrinService } from "@torrin-kit/server";

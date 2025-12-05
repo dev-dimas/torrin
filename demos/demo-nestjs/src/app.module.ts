@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
-import { TorrinModule, TorrinService } from "@torrin/server-nestjs";
-import { createLocalStorageDriver } from "@torrin/storage-local";
-import { createInMemoryStore } from "@torrin/server";
+import { TorrinModule, TorrinService } from "@torrin-kit/server-nestjs";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
+import { createInMemoryStore } from "@torrin-kit/server";
 import { HealthController } from "./health.controller";
 import { AdminController } from "./admin.controller";
 

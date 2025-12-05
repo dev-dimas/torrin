@@ -4,7 +4,7 @@ import {
   DEFAULT_MAX_CONCURRENCY,
   DEFAULT_RETRY_ATTEMPTS,
   DEFAULT_RETRY_DELAY,
-} from "@torrin/core";
+} from "@torrin-kit/core";
 import type { TorrinClientOptions, CreateUploadOptions, TorrinUpload } from "./types.js";
 import { HttpClient } from "./http.js";
 import { createUploadImpl } from "./upload.js";

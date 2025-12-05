@@ -1,4 +1,4 @@
-# @torrin/core
+# @torrin-kit/core
 
 Shared types, error definitions, constants, and utilities for Torrin upload engine.
 
@@ -7,7 +7,7 @@ Shared types, error definitions, constants, and utilities for Torrin upload engi
 ## Installation
 
 ```bash
-npm install @torrin/core
+npm install @torrin-kit/core
 ```
 
 ## Overview
@@ -24,7 +24,7 @@ This package provides the foundation for all Torrin packages:
 ### Upload Session
 
 ```typescript
-import type { TorrinUploadSession, UploadStatus } from "@torrin/core";
+import type { TorrinUploadSession, UploadStatus } from "@torrin-kit/core";
 
 type UploadStatus =
   | "pending"
@@ -51,7 +51,7 @@ interface TorrinUploadSession {
 ### Progress
 
 ```typescript
-import type { TorrinProgress } from "@torrin/core";
+import type { TorrinProgress } from "@torrin-kit/core";
 
 interface TorrinProgress {
   uploadId: string;
@@ -67,7 +67,7 @@ interface TorrinProgress {
 ### Storage Location
 
 ```typescript
-import type { TorrinStorageLocation } from "@torrin/core";
+import type { TorrinStorageLocation } from "@torrin-kit/core";
 
 interface TorrinStorageLocation {
   type: "local" | "s3" | string;
@@ -82,7 +82,7 @@ interface TorrinStorageLocation {
 ### Complete Result
 
 ```typescript
-import type { TorrinCompleteResult } from "@torrin/core";
+import type { TorrinCompleteResult } from "@torrin-kit/core";
 
 interface TorrinCompleteResult {
   uploadId: string;
@@ -99,7 +99,7 @@ interface TorrinCompleteResult {
 ### TorrinError class
 
 ```typescript
-import { TorrinError } from "@torrin/core";
+import { TorrinError } from "@torrin-kit/core";
 
 const error = new TorrinError(
   "CHUNK_SIZE_MISMATCH",
@@ -140,7 +140,7 @@ import {
   isUploadNotFound,
   isUploadAlreadyCompleted,
   isChunkError,
-} from "@torrin/core";
+} from "@torrin-kit/core";
 
 try {
   await someOperation();
@@ -166,7 +166,7 @@ import {
   DEFAULT_RETRY_DELAY, // 1000ms
   UPLOAD_ID_PREFIX, // "u_"
   HTTP_HEADERS,
-} from "@torrin/core";
+} from "@torrin-kit/core";
 
 // HTTP header names
 HTTP_HEADERS.CHUNK_HASH; // "x-torrin-chunk-hash"
@@ -179,7 +179,7 @@ HTTP_HEADERS.CHUNK_INDEX; // "x-torrin-chunk-index"
 ### ID generation
 
 ```typescript
-import { generateUploadId, isValidUploadId } from "@torrin/core";
+import { generateUploadId, isValidUploadId } from "@torrin-kit/core";
 
 const id = generateUploadId(); // "u_m5k2j8a9b3c1"
 isValidUploadId(id); // true
@@ -194,7 +194,7 @@ import {
   normalizeChunkSize,
   getExpectedChunkSize,
   getMissingChunks,
-} from "@torrin/core";
+} from "@torrin-kit/core";
 
 // Calculate number of chunks
 calculateTotalChunks(10_000_000, 1_000_000); // 10
@@ -212,7 +212,7 @@ getMissingChunks(10, [0, 1, 3, 5]); // [2, 4, 6, 7, 8, 9]
 ### Hashing
 
 ```typescript
-import { hashBuffer, hashStream } from "@torrin/core";
+import { hashBuffer, hashStream } from "@torrin-kit/core";
 
 // Hash ArrayBuffer (browser)
 const hash = await hashBuffer(buffer, "SHA-256");
@@ -224,7 +224,7 @@ const hash = await hashStream(stream, "SHA-256");
 ### Formatting
 
 ```typescript
-import { formatBytes, calculateProgress } from "@torrin/core";
+import { formatBytes, calculateProgress } from "@torrin-kit/core";
 
 formatBytes(1536000); // "1.46 MB"
 formatBytes(0); // "0 B"

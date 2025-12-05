@@ -1,5 +1,5 @@
 {
-  "name": "@torrin/storage-local",
+  "name": "@torrin-kit/storage-local",
   "version": "0.8.0",
   "description": "Local filesystem storage driver for Torrin upload engine",
   "type": "module",
@@ -28,8 +28,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@torrin/core": "workspace:*",
-    "@torrin/server": "workspace:*"
+    "@torrin-kit/core": "workspace:*",
+    "@torrin-kit/server": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

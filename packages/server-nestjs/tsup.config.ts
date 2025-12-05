@@ -8,8 +8,8 @@ export default defineConfig({
   sourcemap: true,
   treeshake: true,
   external: [
-    "@torrin/core",
-    "@torrin/server",
+    "@torrin-kit/core",
+    "@torrin-kit/server",
     "@nestjs/common",
     "@nestjs/core",
     "reflect-metadata",

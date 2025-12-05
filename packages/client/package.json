@@ -1,5 +1,5 @@
 {
-  "name": "@torrin/client",
+  "name": "@torrin-kit/client",
   "version": "0.8.0",
   "description": "Client-side upload library for Torrin upload engine",
   "type": "module",
@@ -29,7 +29,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@torrin/core": "workspace:*"
+    "@torrin-kit/core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

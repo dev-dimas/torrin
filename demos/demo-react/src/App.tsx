@@ -5,7 +5,7 @@ import {
   type TorrinUpload,
   type TorrinProgress,
   type UploadClientStatus,
-} from "@torrin/client";
+} from "@torrin-kit/client";
 
 const torrin = createTorrinClient({
   endpoint: "/torrin/uploads",

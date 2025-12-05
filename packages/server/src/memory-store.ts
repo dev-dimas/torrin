@@ -4,7 +4,7 @@ import {
   TorrinError,
   type TorrinUploadSession,
   type TorrinSessionInitInput,
-} from "@torrin/core";
+} from "@torrin-kit/core";
 import type { TorrinUploadStore } from "./upload-store.js";
 
 interface StoredSession {

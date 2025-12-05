@@ -11,9 +11,9 @@
     "@nestjs/common": "^10.3.0",
     "@nestjs/core": "^10.3.0",
     "@nestjs/platform-express": "^10.3.0",
-    "@torrin/server": "workspace:*",
-    "@torrin/server-nestjs": "workspace:*",
-    "@torrin/storage-local": "workspace:*",
+    "@torrin-kit/server": "workspace:*",
+    "@torrin-kit/server-nestjs": "workspace:*",
+    "@torrin-kit/storage-local": "workspace:*",
     "reflect-metadata": "^0.2.1",
     "rxjs": "^7.8.1"
   },

@@ -1,5 +1,5 @@
 {
-  "name": "@torrin/server-express",
+  "name": "@torrin-kit/server-express",
   "version": "0.8.0",
   "description": "Express integration for Torrin upload engine",
   "type": "module",
@@ -28,8 +28,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@torrin/core": "workspace:*",
-    "@torrin/server": "workspace:*"
+    "@torrin-kit/core": "workspace:*",
+    "@torrin-kit/server": "workspace:*"
   },
   "peerDependencies": {
     "express": "^4.18.0 || ^5.0.0"

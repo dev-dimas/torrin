@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
-import { createTorrinExpressRouter } from "@torrin/server-express";
-import { createLocalStorageDriver } from "@torrin/storage-local";
-import { createInMemoryStore, TorrinService } from "@torrin/server";
+import { createTorrinExpressRouter } from "@torrin-kit/server-express";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
+import { createInMemoryStore, TorrinService } from "@torrin-kit/server";
 
 const app = express();
 const PORT = 3001;

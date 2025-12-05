@@ -7,5 +7,5 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   treeshake: true,
-  external: ["@torrin/core", "@torrin/server"],
+  external: ["@torrin-kit/core", "@torrin-kit/server"],
 });

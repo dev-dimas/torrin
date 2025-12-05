@@ -10,4 +10,4 @@ export type {
   TorrinUpload,
   UploadClientStatus,
 } from "./types.js";
-export type { TorrinProgress, TorrinCompleteResult, TorrinUploadState } from "@torrin/core";
+export type { TorrinProgress, TorrinCompleteResult, TorrinUploadState } from "@torrin-kit/core";

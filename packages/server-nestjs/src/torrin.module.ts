@@ -1,5 +1,5 @@
 import { Module, DynamicModule, Provider, type Type, type InjectionToken } from "@nestjs/common";
-import { TorrinService, type TorrinStorageDriver, type TorrinUploadStore } from "@torrin/server";
+import { TorrinService, type TorrinStorageDriver, type TorrinUploadStore } from "@torrin-kit/server";
 import { TorrinController } from "./torrin.controller.js";
 import { TORRIN_OPTIONS, TORRIN_SERVICE } from "./constants.js";
 

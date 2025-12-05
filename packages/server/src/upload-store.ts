@@ -1,4 +1,4 @@
-import type { TorrinUploadSession, TorrinSessionInitInput } from "@torrin/core";
+import type { TorrinUploadSession, TorrinSessionInitInput } from "@torrin-kit/core";
 
 export interface TorrinUploadStore {
   createSession(init: TorrinSessionInitInput, chunkSize: number, ttlMs?: number): Promise<TorrinUploadSession>;

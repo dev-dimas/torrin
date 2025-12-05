@@ -1,4 +1,4 @@
-# @torrin/server-nestjs
+# @torrin-kit/server-nestjs
 
 NestJS integration for Torrin upload engine.
 
@@ -7,16 +7,16 @@ NestJS integration for Torrin upload engine.
 ## Installation
 
 ```bash
-npm install @torrin/server @torrin/server-nestjs @torrin/storage-local
+npm install @torrin-kit/server @torrin-kit/server-nestjs @torrin-kit/storage-local
 ```
 
 ## Quick Start
 
 ```typescript
 import { Module } from "@nestjs/common";
-import { TorrinModule } from "@torrin/server-nestjs";
-import { createLocalStorageDriver } from "@torrin/storage-local";
-import { createInMemoryStore } from "@torrin/server";
+import { TorrinModule } from "@torrin-kit/server-nestjs";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
+import { createInMemoryStore } from "@torrin-kit/server";
 
 @Module({
   imports: [
@@ -74,9 +74,9 @@ The module registers these endpoints at `/torrin/uploads`:
 ```typescript
 import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
-import { TorrinModule } from "@torrin/server-nestjs";
-import { createS3StorageDriver } from "@torrin/storage-s3";
-import { createInMemoryStore } from "@torrin/server";
+import { TorrinModule } from "@torrin-kit/server-nestjs";
+import { createS3StorageDriver } from "@torrin-kit/storage-s3";
+import { createInMemoryStore } from "@torrin-kit/server";
 
 @Module({
   imports: [
@@ -102,7 +102,7 @@ export class AppModule {}
 
 ```typescript
 import { Injectable } from "@nestjs/common";
-import { InjectTorrin, TorrinService } from "@torrin/server-nestjs";
+import { InjectTorrin, TorrinService } from "@torrin-kit/server-nestjs";
 
 @Injectable()
 export class UploadService {
@@ -132,7 +132,7 @@ Override the default controller for custom logic:
 
 ```typescript
 import { Controller, Post, Body, UseGuards } from "@nestjs/common";
-import { InjectTorrin, TorrinService } from "@torrin/server-nestjs";
+import { InjectTorrin, TorrinService } from "@torrin-kit/server-nestjs";
 import { AuthGuard } from "./auth.guard";
 
 @Controller("uploads")
@@ -157,7 +157,7 @@ export class CustomUploadController {
 ```typescript
 import { Module } from "@nestjs/common";
 import { APP_GUARD } from "@nestjs/core";
-import { TorrinModule } from "@torrin/server-nestjs";
+import { TorrinModule } from "@torrin-kit/server-nestjs";
 import { AuthGuard } from "./auth.guard";
 
 @Module({
@@ -177,7 +177,7 @@ export class AppModule {}
 ```typescript
 import { Module } from "@nestjs/common";
 import { APP_INTERCEPTOR } from "@nestjs/core";
-import { TorrinModule } from "@torrin/server-nestjs";
+import { TorrinModule } from "@torrin-kit/server-nestjs";
 import { LoggingInterceptor } from "./logging.interceptor";
 
 @Module({
@@ -199,7 +199,7 @@ export class AppModule {}
 ```typescript
 import { Injectable } from "@nestjs/common";
 import { Cron, CronExpression } from "@nestjs/schedule";
-import { InjectTorrin, TorrinService } from "@torrin/server-nestjs";
+import { InjectTorrin, TorrinService } from "@torrin-kit/server-nestjs";
 
 @Injectable()
 export class CleanupService {
@@ -219,7 +219,7 @@ export class CleanupService {
 
 ```typescript
 import { Controller, Post } from "@nestjs/common";
-import { InjectTorrin, TorrinService } from "@torrin/server-nestjs";
+import { InjectTorrin, TorrinService } from "@torrin-kit/server-nestjs";
 
 @Controller("admin")
 export class AdminController {
@@ -239,9 +239,9 @@ export class AdminController {
 import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { ScheduleModule } from "@nestjs/schedule";
-import { TorrinModule } from "@torrin/server-nestjs";
-import { createLocalStorageDriver } from "@torrin/storage-local";
-import { createInMemoryStore } from "@torrin/server";
+import { TorrinModule } from "@torrin-kit/server-nestjs";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
+import { createInMemoryStore } from "@torrin-kit/server";
 import { CleanupService } from "./cleanup.service";
 import { AdminController } from "./admin.controller";
 
@@ -274,9 +274,9 @@ export class AppModule {}
 import type {
   TorrinModuleOptions,
   TorrinModuleAsyncOptions,
-} from "@torrin/server-nestjs";
+} from "@torrin-kit/server-nestjs";
 
-import { TorrinService, InjectTorrin } from "@torrin/server-nestjs";
+import { TorrinService, InjectTorrin } from "@torrin-kit/server-nestjs";
 ```
 
 ## License

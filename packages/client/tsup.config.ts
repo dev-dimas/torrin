@@ -7,6 +7,6 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   treeshake: true,
-  external: ["@torrin/core"],
+  external: ["@torrin-kit/core"],
   platform: "neutral",
 });

@@ -1,4 +1,4 @@
-# @torrin/storage-s3
+# @torrin-kit/storage-s3
 
 S3-compatible storage driver for Torrin upload engine.
 
@@ -9,7 +9,7 @@ Works with AWS S3, MinIO, Cloudflare R2, DigitalOcean Spaces, and other S3-compa
 ## Installation
 
 ```bash
-npm install @torrin/storage-s3 @aws-sdk/client-s3
+npm install @torrin-kit/storage-s3 @aws-sdk/client-s3
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ npm install @torrin/storage-s3 @aws-sdk/client-s3
 ### AWS S3
 
 ```typescript
-import { createS3StorageDriver } from "@torrin/storage-s3";
+import { createS3StorageDriver } from "@torrin-kit/storage-s3";
 
 const storage = createS3StorageDriver({
   bucket: "my-bucket",
@@ -226,9 +226,9 @@ aws s3api put-bucket-lifecycle-configuration \
 
 ```typescript
 import express from "express";
-import { createTorrinExpressRouter } from "@torrin/server-express";
-import { createS3StorageDriver } from "@torrin/storage-s3";
-import { createInMemoryStore } from "@torrin/server";
+import { createTorrinExpressRouter } from "@torrin-kit/server-express";
+import { createS3StorageDriver } from "@torrin-kit/storage-s3";
+import { createInMemoryStore } from "@torrin-kit/server";
 
 const app = express();
 app.use(express.json());
@@ -253,8 +253,8 @@ app.listen(3000);
 ## TypeScript
 
 ```typescript
-import type { S3StorageOptions } from "@torrin/storage-s3";
-import type { TorrinStorageDriver } from "@torrin/server";
+import type { S3StorageOptions } from "@torrin-kit/storage-s3";
+import type { TorrinStorageDriver } from "@torrin-kit/server";
 ```
 
 ## License

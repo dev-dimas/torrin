@@ -1,4 +1,4 @@
-# @torrin/server
+# @torrin-kit/server
 
 Core server logic for Torrin upload engine. Framework-agnostic.
 
@@ -7,7 +7,7 @@ Core server logic for Torrin upload engine. Framework-agnostic.
 ## Installation
 
 ```bash
-npm install @torrin/server
+npm install @torrin-kit/server
 ```
 
 ## Overview
@@ -21,14 +21,14 @@ This package provides:
 
 For framework integrations, use:
 
-- `@torrin/server-express` for Express.js
-- `@torrin/server-nestjs` for NestJS
+- `@torrin-kit/server-express` for Express.js
+- `@torrin-kit/server-nestjs` for NestJS
 
 ## Direct Usage
 
 ```typescript
-import { TorrinService, createInMemoryStore } from "@torrin/server";
-import { createLocalStorageDriver } from "@torrin/storage-local";
+import { TorrinService, createInMemoryStore } from "@torrin-kit/server";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
 
 const service = new TorrinService({
   storage: createLocalStorageDriver({ baseDir: "./uploads" }),
@@ -154,7 +154,7 @@ interface TorrinUploadStore {
 ### In-memory store
 
 ```typescript
-import { createInMemoryStore } from "@torrin/server";
+import { createInMemoryStore } from "@torrin-kit/server";
 
 const store = createInMemoryStore();
 ```
@@ -173,8 +173,8 @@ Features:
 
 ```typescript
 import { createClient } from "redis";
-import type { TorrinUploadStore } from "@torrin/server";
-import { generateUploadId, calculateTotalChunks } from "@torrin/core";
+import type { TorrinUploadStore } from "@torrin-kit/server";
+import { generateUploadId, calculateTotalChunks } from "@torrin-kit/core";
 
 function createRedisStore(redisUrl: string): TorrinUploadStore {
   const client = createClient({ url: redisUrl });
@@ -256,7 +256,7 @@ setInterval(async () => {
 All methods throw `TorrinError` on failure:
 
 ```typescript
-import { TorrinError } from "@torrin/core";
+import { TorrinError } from "@torrin-kit/core";
 
 try {
   await service.handleChunk({ ... });
@@ -279,7 +279,7 @@ import type {
   TorrinStorageDriver,
   TorrinUploadStore,
   HandleChunkInput,
-} from "@torrin/server";
+} from "@torrin-kit/server";
 ```
 
 ## License

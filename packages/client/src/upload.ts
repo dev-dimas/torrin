@@ -8,7 +8,7 @@ import {
   type TorrinProgress,
   type TorrinUploadState,
   type TorrinCompleteResult,
-} from "@torrin/core";
+} from "@torrin-kit/core";
 import type {
   TorrinUpload,
   TorrinResumeStore,

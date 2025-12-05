@@ -13,8 +13,8 @@ import {
   Inject,
 } from "@nestjs/common";
 import type { Request, Response } from "express";
-import { TorrinError, HTTP_HEADERS, type TorrinSessionInitInput } from "@torrin/core";
-import type { TorrinService } from "@torrin/server";
+import { TorrinError, HTTP_HEADERS, type TorrinSessionInitInput } from "@torrin-kit/core";
+import type { TorrinService } from "@torrin-kit/server";
 import { TORRIN_SERVICE } from "./constants.js";
 
 interface InitUploadDto {

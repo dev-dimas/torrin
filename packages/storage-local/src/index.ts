@@ -3,8 +3,8 @@ import { mkdir, rm, readdir, rename, stat } from "node:fs/promises";
 import { join } from "node:path";
 import { pipeline } from "node:stream/promises";
 import type { Readable } from "node:stream";
-import { TorrinError, type TorrinUploadSession, type TorrinStorageLocation } from "@torrin/core";
-import type { TorrinStorageDriver } from "@torrin/server";
+import { TorrinError, type TorrinUploadSession, type TorrinStorageLocation } from "@torrin-kit/core";
+import type { TorrinStorageDriver } from "@torrin-kit/server";
 
 export interface LocalStorageOptions {
   baseDir: string;

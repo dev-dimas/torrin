@@ -8,8 +8,8 @@ import {
   type CompletedPart,
 } from "@aws-sdk/client-s3";
 import { Readable } from "node:stream";
-import { TorrinError, type TorrinUploadSession, type TorrinStorageLocation } from "@torrin/core";
-import type { TorrinStorageDriver } from "@torrin/server";
+import { TorrinError, type TorrinUploadSession, type TorrinStorageLocation } from "@torrin-kit/core";
+import type { TorrinStorageDriver } from "@torrin-kit/server";
 
 export interface S3StorageOptions {
   bucket: string;

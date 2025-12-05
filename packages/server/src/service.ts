@@ -10,7 +10,7 @@ import {
   type TorrinSessionInitInput,
   type TorrinUploadStatus,
   type TorrinCompleteResult,
-} from "@torrin/core";
+} from "@torrin-kit/core";
 import type { TorrinStorageDriver } from "./storage-driver.js";
 import type { TorrinUploadStore } from "./upload-store.js";
 

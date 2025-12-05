@@ -20,13 +20,13 @@ A modular, TypeScript-first upload engine for large files with resumable, chunke
 
 | Package                  | Description                     | Size (min) | Size (gzip) |
 | ------------------------ | ------------------------------- | ---------- | ----------- |
-| `@torrin/core`           | Shared types, errors, utilities | 5.3 KB     | 1.9 KB      |
-| `@torrin/client`         | Client-side upload library      | 15.9 KB    | 3.9 KB      |
-| `@torrin/server`         | Core server logic               | 8.9 KB     | 2.1 KB      |
-| `@torrin/server-express` | Express.js integration          | 3.9 KB     | 1.1 KB      |
-| `@torrin/server-nestjs`  | NestJS integration              | 7.0 KB     | 2.0 KB      |
-| `@torrin/storage-local`  | Local filesystem driver         | 4.0 KB     | 1.1 KB      |
-| `@torrin/storage-s3`     | S3-compatible driver            | 5.5 KB     | 1.5 KB      |
+| `@torrin-kit/core`           | Shared types, errors, utilities | 5.3 KB     | 1.9 KB      |
+| `@torrin-kit/client`         | Client-side upload library      | 15.9 KB    | 3.9 KB      |
+| `@torrin-kit/server`         | Core server logic               | 8.9 KB     | 2.1 KB      |
+| `@torrin-kit/server-express` | Express.js integration          | 3.9 KB     | 1.1 KB      |
+| `@torrin-kit/server-nestjs`  | NestJS integration              | 7.0 KB     | 2.0 KB      |
+| `@torrin-kit/storage-local`  | Local filesystem driver         | 4.0 KB     | 1.1 KB      |
+| `@torrin-kit/storage-s3`     | S3-compatible driver            | 5.5 KB     | 1.5 KB      |
 
 **Total bundle size (client only):** ~5.8 KB gzipped (core + client)
 
@@ -60,19 +60,19 @@ A modular, TypeScript-first upload engine for large files with resumable, chunke
 
 ```bash
 # Server (Express)
-npm install @torrin/server @torrin/server-express @torrin/storage-local
+npm install @torrin-kit/server @torrin-kit/server-express @torrin-kit/storage-local
 
 # Client
-npm install @torrin/client
+npm install @torrin-kit/client
 ```
 
 ### 2. Setup server (Express)
 
 ```typescript
 import express from "express";
-import { createTorrinExpressRouter } from "@torrin/server-express";
-import { createLocalStorageDriver } from "@torrin/storage-local";
-import { createInMemoryStore } from "@torrin/server";
+import { createTorrinExpressRouter } from "@torrin-kit/server-express";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
+import { createInMemoryStore } from "@torrin-kit/server";
 
 const app = express();
 app.use(express.json());
@@ -91,7 +91,7 @@ app.listen(3000);
 ### 3. Upload from browser
 
 ```typescript
-import { createTorrinClient } from "@torrin/client";
+import { createTorrinClient } from "@torrin-kit/client";
 
 const torrin = createTorrinClient({
   endpoint: "/torrin/uploads",
@@ -111,20 +111,20 @@ console.log("Uploaded to:", result.location);
 
 ```bash
 # Core + Express
-npm install @torrin/server @torrin/server-express
+npm install @torrin-kit/server @torrin-kit/server-express
 
 # Core + NestJS
-npm install @torrin/server @torrin/server-nestjs
+npm install @torrin-kit/server @torrin-kit/server-nestjs
 
 # Storage drivers (pick one or more)
-npm install @torrin/storage-local
-npm install @torrin/storage-s3 @aws-sdk/client-s3
+npm install @torrin-kit/storage-local
+npm install @torrin-kit/storage-s3 @aws-sdk/client-s3
 ```
 
 ### Client package
 
 ```bash
-npm install @torrin/client
+npm install @torrin-kit/client
 ```
 
 ## Server Setup
@@ -133,9 +133,9 @@ npm install @torrin/client
 
 ```typescript
 import express from "express";
-import { createTorrinExpressRouter } from "@torrin/server-express";
-import { createLocalStorageDriver } from "@torrin/storage-local";
-import { createInMemoryStore } from "@torrin/server";
+import { createTorrinExpressRouter } from "@torrin-kit/server-express";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
+import { createInMemoryStore } from "@torrin-kit/server";
 
 const app = express();
 app.use(express.json());
@@ -170,9 +170,9 @@ app.listen(3000);
 
 ```typescript
 import { Module } from "@nestjs/common";
-import { TorrinModule } from "@torrin/server-nestjs";
-import { createLocalStorageDriver } from "@torrin/storage-local";
-import { createInMemoryStore } from "@torrin/server";
+import { TorrinModule } from "@torrin-kit/server-nestjs";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
+import { createInMemoryStore } from "@torrin-kit/server";
 
 @Module({
   imports: [
@@ -206,7 +206,7 @@ TorrinModule.forRootAsync({
 
 ```typescript
 import { Injectable } from "@nestjs/common";
-import { InjectTorrin, TorrinService } from "@torrin/server-nestjs";
+import { InjectTorrin, TorrinService } from "@torrin-kit/server-nestjs";
 
 @Injectable()
 export class UploadService {
@@ -227,7 +227,7 @@ export class UploadService {
 import {
   createTorrinClient,
   createLocalStorageResumeStore,
-} from "@torrin/client";
+} from "@torrin-kit/client";
 
 const torrin = createTorrinClient({
   endpoint: "/torrin/uploads",
@@ -271,7 +271,7 @@ fileInput.onchange = async () => {
 
 ```typescript
 import { readFileSync } from "fs";
-import { createTorrinClient } from "@torrin/client";
+import { createTorrinClient } from "@torrin-kit/client";
 
 const torrin = createTorrinClient({
   endpoint: "http://localhost:3000/torrin/uploads",
@@ -472,7 +472,7 @@ interface TorrinUploadStore {
 #### Local storage
 
 ```typescript
-import { createLocalStorageDriver } from "@torrin/storage-local";
+import { createLocalStorageDriver } from "@torrin-kit/storage-local";
 
 const storage = createLocalStorageDriver({
   baseDir: "./uploads", // Final file destination
@@ -484,7 +484,7 @@ const storage = createLocalStorageDriver({
 #### S3 storage
 
 ```typescript
-import { createS3StorageDriver } from "@torrin/storage-s3";
+import { createS3StorageDriver } from "@torrin-kit/storage-s3";
 
 const storage = createS3StorageDriver({
   bucket: "my-bucket",
@@ -615,7 +615,7 @@ Response `204 No Content`
 import {
   createTorrinClient,
   createLocalStorageResumeStore,
-} from "@torrin/client";
+} from "@torrin-kit/client";
 
 const torrin = createTorrinClient({
   endpoint: "/torrin/uploads",
@@ -735,7 +735,7 @@ app.post("/admin/cleanup", async (req, res) => {
 ### Client-side handling
 
 ```typescript
-import { TorrinError } from "@torrin/core";
+import { TorrinError } from "@torrin-kit/core";
 
 upload.on("error", (error) => {
   if (error instanceof TorrinError) {
@@ -756,7 +756,7 @@ upload.on("error", (error) => {
 ### Server-side handling
 
 ```typescript
-import { TorrinError } from "@torrin/core";
+import { TorrinError } from "@torrin-kit/core";
 
 try {
   await service.completeUpload(uploadId);
@@ -841,7 +841,7 @@ import type {
   TorrinError,
   TorrinErrorCode,
   UploadStatus,
-} from "@torrin/core";
+} from "@torrin-kit/core";
 
 // Client types
 import type {
@@ -851,7 +851,7 @@ import type {
   CreateUploadOptions,
   TorrinResumeStore,
   UploadClientStatus,
-} from "@torrin/client";
+} from "@torrin-kit/client";
 
 // Server types
 import type {
@@ -859,7 +859,7 @@ import type {
   TorrinServiceOptions,
   TorrinStorageDriver,
   TorrinUploadStore,
-} from "@torrin/server";
+} from "@torrin-kit/server";
 ```
 
 ## Examples
