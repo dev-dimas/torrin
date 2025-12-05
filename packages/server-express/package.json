@@ -1,6 +1,6 @@
 {
   "name": "@torrin/server-express",
-  "version": "0.1.0",
+  "version": "0.8.0",
   "description": "Express integration for Torrin upload engine",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -18,7 +18,9 @@
       }
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -39,6 +41,21 @@
     "tsup": "^8.0.1",
     "typescript": "^5.3.0"
   },
+  "author": "Dimas Maulana",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dev-dimas/torrin.git"
+  },
+  "homepage": "https://github.com/dev-dimas/torrin/tree/main/packages/server-express#readme",
+  "keywords": [
+    "torrin",
+    "express",
+    "server",
+    "upload",
+    "file-upload",
+    "resumable",
+    "typescript"
+  ],
   "sideEffects": false,
   "license": "Apache-2.0"
 }

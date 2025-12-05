@@ -1,6 +1,6 @@
 {
   "name": "@torrin/storage-s3",
-  "version": "0.1.0",
+  "version": "0.8.0",
   "description": "S3-compatible storage driver for Torrin upload engine",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -18,7 +18,9 @@
       }
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -39,5 +41,21 @@
     "typescript": "^5.3.0"
   },
   "sideEffects": false,
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "author": "Dimas Maulana",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dev-dimas/torrin.git"
+  },
+  "homepage": "https://github.com/dev-dimas/torrin/tree/main/packages/storage-s3#readme",
+  "keywords": [
+    "torrin",
+    "storage",
+    "s3",
+    "aws",
+    "upload",
+    "file-upload",
+    "resumable",
+    "typescript"
+  ]
 }

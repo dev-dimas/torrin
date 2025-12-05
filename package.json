@@ -23,5 +23,23 @@
   "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "author": "Dimas Maulana",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dev-dimas/torrin.git"
+  },
+  "homepage": "https://github.com/dev-dimas/torrin#readme",
+  "keywords": [
+    "upload",
+    "file-upload",
+    "resumable",
+    "large-file",
+    "chunk-upload",
+    "streaming",
+    "multipart",
+    "file-transfer",
+    "upload-engine",
+    "resume-upload"
+  ]
 }
