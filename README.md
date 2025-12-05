@@ -2,7 +2,7 @@
 
 # Torrin
 
-A modular, TypeScript-first upload engine for large files with resumable, chunked uploads.
+A modular, TypeScript-first upload engine for large files with resumable upload and chunk-level control.
 
 ## Features
 
