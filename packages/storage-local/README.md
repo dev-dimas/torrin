@@ -26,8 +26,8 @@ const storage = createLocalStorageDriver({
 
 ```typescript
 interface LocalStorageOptions {
-  baseDir: string;            // Final file destination
-  tempDir?: string;           // Chunk staging (default: baseDir/.temp)
+  baseDir: string; // Final file destination
+  tempDir?: string; // Chunk staging (default: baseDir/.temp)
   preserveFileName?: boolean; // Use original filename (default: false)
 }
 ```
@@ -60,6 +60,7 @@ const storage = createLocalStorageDriver({
 If `true`, files are stored in subdirectories with original filenames. If `false` (default), files use uploadId as filename.
 
 **Default (`preserveFileName: false`):**
+
 ```
 uploads/
 ├── u_abc123.mp4
@@ -68,6 +69,7 @@ uploads/
 ```
 
 **With `preserveFileName: true`:**
+
 ```
 uploads/
 ├── u_abc123/
@@ -128,10 +130,13 @@ const storage = createLocalStorageDriver({
   preserveFileName: true,
 });
 
-app.use("/torrin/uploads", createTorrinExpressRouter({
-  storage,
-  store: createInMemoryStore(),
-}));
+app.use(
+  "/torrin/uploads",
+  createTorrinExpressRouter({
+    storage,
+    store: createInMemoryStore(),
+  })
+);
 
 // Serve uploaded files
 app.use("/files", express.static("./uploads"));
@@ -163,7 +168,7 @@ async function cleanupOrphanedChunks(tempDir: string, maxAgeMs: number) {
   for (const entry of entries) {
     const path = join(tempDir, entry);
     const stats = await stat(path);
-    
+
     if (now - stats.mtimeMs > maxAgeMs) {
       await rm(path, { recursive: true });
       console.log(`Cleaned orphaned upload: ${entry}`);
@@ -184,4 +189,4 @@ import type { TorrinStorageDriver } from "@torrin/server";
 
 ## License
 
-Apache-2.0
+[Apache-2.0](LICENSE)

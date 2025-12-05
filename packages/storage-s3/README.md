@@ -88,14 +88,14 @@ const storage = createS3StorageDriver({
 ```typescript
 interface S3StorageOptions {
   bucket: string;
-  region?: string;             // Default: "us-east-1"
-  endpoint?: string;           // Custom endpoint for S3-compatible services
+  region?: string; // Default: "us-east-1"
+  endpoint?: string; // Custom endpoint for S3-compatible services
   credentials?: {
     accessKeyId: string;
     secretAccessKey: string;
   };
-  keyPrefix?: string;          // Default: "uploads/"
-  forcePathStyle?: boolean;    // Required for MinIO
+  keyPrefix?: string; // Default: "uploads/"
+  forcePathStyle?: boolean; // Required for MinIO
   s3ClientConfig?: S3ClientConfig;
   getObjectKey?: (session: TorrinUploadSession) => string;
 }
@@ -142,6 +142,7 @@ This driver uses S3's native multipart upload:
 4. **abortUpload**: `AbortMultipartUploadCommand`
 
 Benefits:
+
 - No temporary local storage needed
 - Native S3 multipart = efficient large file handling
 - Automatic cleanup on abort
@@ -238,10 +239,13 @@ const storage = createS3StorageDriver({
   keyPrefix: "uploads/",
 });
 
-app.use("/torrin/uploads", createTorrinExpressRouter({
-  storage,
-  store: createInMemoryStore(),
-}));
+app.use(
+  "/torrin/uploads",
+  createTorrinExpressRouter({
+    storage,
+    store: createInMemoryStore(),
+  })
+);
 
 app.listen(3000);
 ```
@@ -255,4 +259,4 @@ import type { TorrinStorageDriver } from "@torrin/server";
 
 ## License
 
-Apache-2.0
+[Apache-2.0](LICENSE)

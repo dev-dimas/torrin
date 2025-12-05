@@ -20,6 +20,7 @@ This package provides:
 - `createInMemoryStore()` - Default in-memory session store
 
 For framework integrations, use:
+
 - `@torrin/server-express` for Express.js
 - `@torrin/server-nestjs` for NestJS
 
@@ -71,12 +72,17 @@ class TorrinService {
   initUpload(input: TorrinSessionInitInput): Promise<TorrinUploadSession>;
   handleChunk(input: HandleChunkInput): Promise<void>;
   getStatus(uploadId: string): Promise<TorrinUploadStatus>;
-  completeUpload(uploadId: string, hash?: string): Promise<TorrinCompleteResult>;
+  completeUpload(
+    uploadId: string,
+    hash?: string
+  ): Promise<TorrinCompleteResult>;
   abortUpload(uploadId: string): Promise<void>;
-  
+
   // Cleanup
   cleanupExpiredUploads(): Promise<{ cleaned: number; errors: string[] }>;
-  cleanupStaleUploads(maxAgeMs: number): Promise<{ cleaned: number; errors: string[] }>;
+  cleanupStaleUploads(
+    maxAgeMs: number
+  ): Promise<{ cleaned: number; errors: string[] }>;
 }
 ```
 
@@ -86,9 +92,9 @@ class TorrinService {
 interface TorrinServiceOptions {
   storage: TorrinStorageDriver;
   store: TorrinUploadStore;
-  defaultChunkSize?: number;    // Default: 1MB
-  maxChunkSize?: number;        // Default: 100MB
-  uploadTtlMs?: number;         // Default: 24 hours
+  defaultChunkSize?: number; // Default: 1MB
+  maxChunkSize?: number; // Default: 100MB
+  uploadTtlMs?: number; // Default: 24 hours
 }
 ```
 
@@ -121,22 +127,22 @@ Implement this for custom session persistence:
 ```typescript
 interface TorrinUploadStore {
   createSession(
-    init: TorrinSessionInitInput, 
-    chunkSize: number, 
+    init: TorrinSessionInitInput,
+    chunkSize: number,
     ttlMs?: number
   ): Promise<TorrinUploadSession>;
-  
+
   getSession(uploadId: string): Promise<TorrinUploadSession | null>;
-  
+
   updateSession(
-    uploadId: string, 
+    uploadId: string,
     patch: Partial<TorrinUploadSession>
   ): Promise<TorrinUploadSession>;
-  
+
   markChunkReceived(uploadId: string, chunkIndex: number): Promise<void>;
   listReceivedChunks(uploadId: string): Promise<number[]>;
   deleteSession(uploadId: string): Promise<void>;
-  
+
   // Optional (for cleanup)
   listExpiredSessions?(): Promise<TorrinUploadSession[]>;
   listAllSessions?(): Promise<TorrinUploadSession[]>;
@@ -154,6 +160,7 @@ const store = createInMemoryStore();
 ```
 
 Features:
+
 - TTL support with automatic expiration checks
 - Tracks received chunks per upload
 - Supports cleanup operations
@@ -171,7 +178,7 @@ import { generateUploadId, calculateTotalChunks } from "@torrin/core";
 
 function createRedisStore(redisUrl: string): TorrinUploadStore {
   const client = createClient({ url: redisUrl });
-  
+
   return {
     async createSession(init, chunkSize, ttlMs) {
       const uploadId = generateUploadId();
@@ -185,21 +192,21 @@ function createRedisStore(redisUrl: string): TorrinUploadStore {
         updatedAt: new Date(),
         expiresAt: ttlMs ? new Date(Date.now() + ttlMs) : undefined,
       };
-      
+
       await client.set(
-        `upload:${uploadId}`, 
+        `upload:${uploadId}`,
         JSON.stringify(session),
         ttlMs ? { EX: Math.ceil(ttlMs / 1000) } : undefined
       );
-      
+
       return session;
     },
-    
+
     async getSession(uploadId) {
       const data = await client.get(`upload:${uploadId}`);
       return data ? JSON.parse(data) : null;
     },
-    
+
     // ... implement other methods
   };
 }
@@ -277,4 +284,4 @@ import type {
 
 ## License
 
-Apache-2.0
+[Apache-2.0](LICENSE)

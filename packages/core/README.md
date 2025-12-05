@@ -26,11 +26,11 @@ This package provides the foundation for all Torrin packages:
 ```typescript
 import type { TorrinUploadSession, UploadStatus } from "@torrin/core";
 
-type UploadStatus = 
-  | "pending" 
-  | "in_progress" 
-  | "completed" 
-  | "failed" 
+type UploadStatus =
+  | "pending"
+  | "in_progress"
+  | "completed"
+  | "failed"
   | "canceled";
 
 interface TorrinUploadSession {
@@ -57,7 +57,7 @@ interface TorrinProgress {
   uploadId: string;
   bytesUploaded: number;
   totalBytes: number;
-  percentage: number;      // 0-100
+  percentage: number; // 0-100
   chunkIndex?: number;
   chunksCompleted: number;
   totalChunks: number;
@@ -71,10 +71,10 @@ import type { TorrinStorageLocation } from "@torrin/core";
 
 interface TorrinStorageLocation {
   type: "local" | "s3" | string;
-  path?: string;      // Local storage
-  bucket?: string;    // S3
-  key?: string;       // S3
-  url?: string;       // Public URL
+  path?: string; // Local storage
+  bucket?: string; // S3
+  key?: string; // S3
+  url?: string; // Public URL
   [key: string]: unknown;
 }
 ```
@@ -107,39 +107,39 @@ const error = new TorrinError(
   { expected: 1048576, actual: 1000000 }
 );
 
-console.log(error.code);       // "CHUNK_SIZE_MISMATCH"
-console.log(error.message);    // "Expected 1048576 bytes, got 1000000"
+console.log(error.code); // "CHUNK_SIZE_MISMATCH"
+console.log(error.message); // "Expected 1048576 bytes, got 1000000"
 console.log(error.statusCode); // 400
-console.log(error.details);    // { expected: 1048576, actual: 1000000 }
-console.log(error.toJSON());   // { error: { code, message, details } }
+console.log(error.details); // { expected: 1048576, actual: 1000000 }
+console.log(error.toJSON()); // { error: { code, message, details } }
 ```
 
 ### Error codes
 
-| Code | HTTP Status | Description |
-|------|-------------|-------------|
-| `UPLOAD_NOT_FOUND` | 404 | Upload session not found |
-| `UPLOAD_ALREADY_COMPLETED` | 409 | Upload already finalized |
-| `UPLOAD_CANCELED` | 409 | Upload was canceled |
-| `CHUNK_OUT_OF_RANGE` | 400 | Invalid chunk index |
-| `CHUNK_SIZE_MISMATCH` | 400 | Chunk size doesn't match expected |
-| `CHUNK_HASH_MISMATCH` | 400 | Chunk hash validation failed |
-| `CHUNK_ALREADY_UPLOADED` | 409 | Chunk was already received |
-| `MISSING_CHUNKS` | 400 | Cannot complete, chunks missing |
-| `FILE_HASH_MISMATCH` | 400 | Final file hash doesn't match |
-| `STORAGE_ERROR` | 500 | Storage operation failed |
-| `INVALID_REQUEST` | 400 | Malformed request |
-| `NETWORK_ERROR` | 503 | Network connectivity issue |
-| `TIMEOUT_ERROR` | 503 | Operation timed out |
-| `INTERNAL_ERROR` | 500 | Unexpected error |
+| Code                       | HTTP Status | Description                       |
+| -------------------------- | ----------- | --------------------------------- |
+| `UPLOAD_NOT_FOUND`         | 404         | Upload session not found          |
+| `UPLOAD_ALREADY_COMPLETED` | 409         | Upload already finalized          |
+| `UPLOAD_CANCELED`          | 409         | Upload was canceled               |
+| `CHUNK_OUT_OF_RANGE`       | 400         | Invalid chunk index               |
+| `CHUNK_SIZE_MISMATCH`      | 400         | Chunk size doesn't match expected |
+| `CHUNK_HASH_MISMATCH`      | 400         | Chunk hash validation failed      |
+| `CHUNK_ALREADY_UPLOADED`   | 409         | Chunk was already received        |
+| `MISSING_CHUNKS`           | 400         | Cannot complete, chunks missing   |
+| `FILE_HASH_MISMATCH`       | 400         | Final file hash doesn't match     |
+| `STORAGE_ERROR`            | 500         | Storage operation failed          |
+| `INVALID_REQUEST`          | 400         | Malformed request                 |
+| `NETWORK_ERROR`            | 503         | Network connectivity issue        |
+| `TIMEOUT_ERROR`            | 503         | Operation timed out               |
+| `INTERNAL_ERROR`           | 500         | Unexpected error                  |
 
 ### Type guards
 
 ```typescript
-import { 
-  isUploadNotFound, 
-  isUploadAlreadyCompleted, 
-  isChunkError 
+import {
+  isUploadNotFound,
+  isUploadAlreadyCompleted,
+  isChunkError,
 } from "@torrin/core";
 
 try {
@@ -157,21 +157,21 @@ try {
 
 ```typescript
 import {
-  DEFAULT_CHUNK_SIZE,      // 1MB (1048576)
-  MIN_CHUNK_SIZE,          // 256KB (262144)
-  MAX_CHUNK_SIZE,          // 100MB (104857600)
+  DEFAULT_CHUNK_SIZE, // 1MB (1048576)
+  MIN_CHUNK_SIZE, // 256KB (262144)
+  MAX_CHUNK_SIZE, // 100MB (104857600)
   DEFAULT_MAX_CONCURRENCY, // 3
-  MAX_CONCURRENCY,         // 10
-  DEFAULT_RETRY_ATTEMPTS,  // 3
-  DEFAULT_RETRY_DELAY,     // 1000ms
-  UPLOAD_ID_PREFIX,        // "u_"
+  MAX_CONCURRENCY, // 10
+  DEFAULT_RETRY_ATTEMPTS, // 3
+  DEFAULT_RETRY_DELAY, // 1000ms
+  UPLOAD_ID_PREFIX, // "u_"
   HTTP_HEADERS,
 } from "@torrin/core";
 
 // HTTP header names
-HTTP_HEADERS.CHUNK_HASH   // "x-torrin-chunk-hash"
-HTTP_HEADERS.UPLOAD_ID    // "x-torrin-upload-id"
-HTTP_HEADERS.CHUNK_INDEX  // "x-torrin-chunk-index"
+HTTP_HEADERS.CHUNK_HASH; // "x-torrin-chunk-hash"
+HTTP_HEADERS.UPLOAD_ID; // "x-torrin-upload-id"
+HTTP_HEADERS.CHUNK_INDEX; // "x-torrin-chunk-index"
 ```
 
 ## Utilities
@@ -181,32 +181,32 @@ HTTP_HEADERS.CHUNK_INDEX  // "x-torrin-chunk-index"
 ```typescript
 import { generateUploadId, isValidUploadId } from "@torrin/core";
 
-const id = generateUploadId();  // "u_m5k2j8a9b3c1"
-isValidUploadId(id);            // true
-isValidUploadId("invalid");     // false
+const id = generateUploadId(); // "u_m5k2j8a9b3c1"
+isValidUploadId(id); // true
+isValidUploadId("invalid"); // false
 ```
 
 ### Chunk calculations
 
 ```typescript
-import { 
-  calculateTotalChunks, 
+import {
+  calculateTotalChunks,
   normalizeChunkSize,
   getExpectedChunkSize,
-  getMissingChunks 
+  getMissingChunks,
 } from "@torrin/core";
 
 // Calculate number of chunks
-calculateTotalChunks(10_000_000, 1_000_000);  // 10
+calculateTotalChunks(10_000_000, 1_000_000); // 10
 
 // Normalize chunk size within bounds
-normalizeChunkSize(500_000, 10_000_000);  // 1048576 (min is 256KB)
+normalizeChunkSize(500_000, 10_000_000); // 1048576 (min is 256KB)
 
 // Get expected size for specific chunk (last chunk may be smaller)
-getExpectedChunkSize(9, 10, 10_000_000, 1_000_000);  // 1000000 (last chunk)
+getExpectedChunkSize(9, 10, 10_000_000, 1_000_000); // 1000000 (last chunk)
 
 // Find missing chunks
-getMissingChunks(10, [0, 1, 3, 5]);  // [2, 4, 6, 7, 8, 9]
+getMissingChunks(10, [0, 1, 3, 5]); // [2, 4, 6, 7, 8, 9]
 ```
 
 ### Hashing
@@ -226,11 +226,11 @@ const hash = await hashStream(stream, "SHA-256");
 ```typescript
 import { formatBytes, calculateProgress } from "@torrin/core";
 
-formatBytes(1536000);              // "1.46 MB"
-formatBytes(0);                    // "0 B"
-calculateProgress(5_000_000, 10_000_000);  // 50
+formatBytes(1536000); // "1.46 MB"
+formatBytes(0); // "0 B"
+calculateProgress(5_000_000, 10_000_000); // 50
 ```
 
 ## License
 
-Apache-2.0
+[Apache-2.0](LICENSE)

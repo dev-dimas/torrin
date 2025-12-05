@@ -37,10 +37,10 @@ export class AppModule {}
 interface TorrinModuleOptions {
   storage: TorrinStorageDriver;
   store: TorrinUploadStore;
-  defaultChunkSize?: number;    // Default: 1MB
-  maxChunkSize?: number;        // Default: 100MB
-  uploadTtlMs?: number;         // Default: 24 hours
-  global?: boolean;             // Make module global
+  defaultChunkSize?: number; // Default: 1MB
+  maxChunkSize?: number; // Default: 100MB
+  uploadTtlMs?: number; // Default: 24 hours
+  global?: boolean; // Make module global
 }
 ```
 
@@ -49,7 +49,9 @@ interface TorrinModuleOptions {
 ```typescript
 interface TorrinModuleAsyncOptions {
   imports?: Type<any>[];
-  useFactory: (...args: any[]) => TorrinModuleOptions | Promise<TorrinModuleOptions>;
+  useFactory: (
+    ...args: any[]
+  ) => TorrinModuleOptions | Promise<TorrinModuleOptions>;
   inject?: InjectionToken[];
   global?: boolean;
 }
@@ -59,13 +61,13 @@ interface TorrinModuleAsyncOptions {
 
 The module registers these endpoints at `/torrin/uploads`:
 
-| Method | Path | Description |
-|--------|------|-------------|
-| `POST` | `/torrin/uploads` | Initialize upload |
-| `PUT` | `/torrin/uploads/:uploadId/chunks/:index` | Upload chunk |
-| `GET` | `/torrin/uploads/:uploadId/status` | Get upload status |
-| `POST` | `/torrin/uploads/:uploadId/complete` | Complete upload |
-| `DELETE` | `/torrin/uploads/:uploadId` | Abort upload |
+| Method   | Path                                      | Description       |
+| -------- | ----------------------------------------- | ----------------- |
+| `POST`   | `/torrin/uploads`                         | Initialize upload |
+| `PUT`    | `/torrin/uploads/:uploadId/chunks/:index` | Upload chunk      |
+| `GET`    | `/torrin/uploads/:uploadId/status`        | Get upload status |
+| `POST`   | `/torrin/uploads/:uploadId/complete`      | Complete upload   |
+| `DELETE` | `/torrin/uploads/:uploadId`               | Abort upload      |
 
 ## Async Configuration
 
@@ -279,4 +281,4 @@ import { TorrinService, InjectTorrin } from "@torrin/server-nestjs";
 
 ## License
 
-Apache-2.0
+[Apache-2.0](LICENSE)

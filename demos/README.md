@@ -24,12 +24,14 @@ pnpm build
 ### 2. Run backend (choose one)
 
 **Express:**
+
 ```bash
 cd demos/demo-express
 pnpm dev
 ```
 
 **NestJS:**
+
 ```bash
 cd demos/demo-nestjs
 pnpm dev
@@ -71,15 +73,15 @@ Open `http://localhost:5173` and upload a file.
 
 ## Endpoints
 
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/health` | Health check |
-| `POST` | `/torrin/uploads` | Initialize upload |
-| `PUT` | `/torrin/uploads/:id/chunks/:index` | Upload chunk |
-| `GET` | `/torrin/uploads/:id/status` | Get status |
-| `POST` | `/torrin/uploads/:id/complete` | Complete upload |
-| `DELETE` | `/torrin/uploads/:id` | Abort upload |
-| `POST` | `/admin/cleanup` | Trigger cleanup |
+| Method   | Path                                | Description       |
+| -------- | ----------------------------------- | ----------------- |
+| `GET`    | `/health`                           | Health check      |
+| `POST`   | `/torrin/uploads`                   | Initialize upload |
+| `PUT`    | `/torrin/uploads/:id/chunks/:index` | Upload chunk      |
+| `GET`    | `/torrin/uploads/:id/status`        | Get status        |
+| `POST`   | `/torrin/uploads/:id/complete`      | Complete upload   |
+| `DELETE` | `/torrin/uploads/:id`               | Abort upload      |
+| `POST`   | `/admin/cleanup`                    | Trigger cleanup   |
 
 ## Configuration
 
@@ -146,14 +148,14 @@ demo-react/
 │                                             │
 │  ┌───────────────────────────────────────┐  │
 │  │                                       │  │
-│  │   Click to upload or drag and drop   │  │
+│  │   Click to upload or drag and drop    │  │
 │  │                                       │  │
 │  └───────────────────────────────────────┘  │
 │                                             │
 │  ┌───────────────────────────────────────┐  │
 │  │  video.mp4                  uploading │  │
 │  │  256 MB                               │  │
-│  │  ████████████░░░░░░░░░░░░░░░░░ 45%   │  │
+│  │  ████████████░░░░░░░░░░░░░░░░░ 45%    │  │
 │  │  45 / 100 chunks                      │  │
 │  │  [Pause]  [Cancel]                    │  │
 │  └───────────────────────────────────────┘  │
@@ -161,7 +163,7 @@ demo-react/
 │  ┌───────────────────────────────────────┐  │
 │  │  document.pdf               completed │  │
 │  │  5.2 MB                               │  │
-│  │  █████████████████████████████ 100%  │  │
+│  │  █████████████████████████████ 100%   │  │
 │  │  5 / 5 chunks                         │  │
 │  │  [Remove]                             │  │
 │  └───────────────────────────────────────┘  │
@@ -170,4 +172,4 @@ demo-react/
 
 ## License
 
-Apache-2.0
+[Apache-2.0](LICENSE)

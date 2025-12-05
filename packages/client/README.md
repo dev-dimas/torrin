@@ -51,13 +51,13 @@ const result = await upload.start();
 
 ```typescript
 interface TorrinClientOptions {
-  endpoint: string;                    // Server endpoint URL
+  endpoint: string; // Server endpoint URL
   headers?: () => Record<string, string> | Promise<Record<string, string>>;
-  defaultChunkSize?: number;           // Default: 1MB
-  maxConcurrency?: number;             // Default: 3
-  resumeStore?: TorrinResumeStore;     // For persistence
-  retryAttempts?: number;              // Default: 3
-  retryDelay?: number;                 // Default: 1000ms
+  defaultChunkSize?: number; // Default: 1MB
+  maxConcurrency?: number; // Default: 3
+  resumeStore?: TorrinResumeStore; // For persistence
+  retryAttempts?: number; // Default: 3
+  retryDelay?: number; // Default: 1000ms
 }
 ```
 
@@ -66,15 +66,15 @@ interface TorrinClientOptions {
 ```typescript
 interface CreateUploadOptions {
   // Source (provide one)
-  file?: File | Blob;                  // Browser
-  buffer?: ArrayBuffer | Uint8Array;   // Browser or Node
-  
+  file?: File | Blob; // Browser
+  buffer?: ArrayBuffer | Uint8Array; // Browser or Node
+
   // Metadata
   fileName?: string;
-  fileSize?: number;                   // Required for buffer
+  fileSize?: number; // Required for buffer
   mimeType?: string;
   metadata?: Record<string, unknown>;
-  chunkSize?: number;                  // Override default
+  chunkSize?: number; // Override default
 }
 ```
 
@@ -86,12 +86,12 @@ interface TorrinUpload {
   pause(): void;
   resume(): void;
   cancel(): Promise<void>;
-  
+
   on(event: "progress", handler: (p: TorrinProgress) => void): this;
   on(event: "error", handler: (err: Error) => void): this;
   on(event: "status", handler: (status: UploadClientStatus) => void): this;
   off(event: string, handler: Function): this;
-  
+
   readonly uploadId: string | null;
   readonly status: UploadClientStatus;
 }
@@ -114,7 +114,7 @@ interface TorrinProgress {
   uploadId: string;
   bytesUploaded: number;
   totalBytes: number;
-  percentage: number;        // 0-100
+  percentage: number; // 0-100
   chunkIndex?: number;
   chunksCompleted: number;
   totalChunks: number;
@@ -146,7 +146,7 @@ upload.start();
 // Pause upload
 pauseBtn.onclick = () => upload.pause();
 
-// Resume upload  
+// Resume upload
 resumeBtn.onclick = () => upload.resume();
 
 // Cancel upload (allows re-upload of same file)
@@ -156,9 +156,9 @@ cancelBtn.onclick = () => upload.cancel();
 ### Resume after page refresh
 
 ```typescript
-import { 
-  createTorrinClient, 
-  createLocalStorageResumeStore 
+import {
+  createTorrinClient,
+  createLocalStorageResumeStore,
 } from "@torrin/client";
 
 const torrin = createTorrinClient({
@@ -177,9 +177,13 @@ await upload.start(); // Resumes if previous upload exists
 ```typescript
 interface TorrinResumeStore {
   save(uploadId: string, state: TorrinUploadState): Promise<void> | void;
-  load(uploadId: string): Promise<TorrinUploadState | null> | TorrinUploadState | null;
+  load(
+    uploadId: string
+  ): Promise<TorrinUploadState | null> | TorrinUploadState | null;
   remove(uploadId: string): Promise<void> | void;
-  findByFile?(fileKey: string): Promise<TorrinUploadState | null> | TorrinUploadState | null;
+  findByFile?(
+    fileKey: string
+  ): Promise<TorrinUploadState | null> | TorrinUploadState | null;
   saveFileKey?(fileKey: string, uploadId: string): Promise<void> | void;
   removeFileKey?(fileKey: string): Promise<void> | void;
 }
@@ -269,8 +273,9 @@ const upload = torrin.createUpload({
 ```
 
 **Recommendations:**
+
 - Small files (<10MB): 256KB - 1MB
-- Medium files (10MB - 1GB): 1MB - 5MB  
+- Medium files (10MB - 1GB): 1MB - 5MB
 - Large files (>1GB): 5MB - 20MB
 
 ### Concurrency
@@ -285,8 +290,8 @@ const torrin = createTorrinClient({
 
 ```typescript
 const torrin = createTorrinClient({
-  retryAttempts: 5,  // Retry failed chunks 5 times
-  retryDelay: 2000,  // 2s initial delay (exponential backoff)
+  retryAttempts: 5, // Retry failed chunks 5 times
+  retryDelay: 2000, // 2s initial delay (exponential backoff)
 });
 ```
 
@@ -324,12 +329,9 @@ import type {
   UploadClientStatus,
 } from "@torrin/client";
 
-import type {
-  TorrinProgress,
-  TorrinCompleteResult,
-} from "@torrin/core";
+import type { TorrinProgress, TorrinCompleteResult } from "@torrin/core";
 ```
 
 ## License
 
-Apache-2.0
+[Apache-2.0](LICENSE)

@@ -41,9 +41,9 @@ interface TorrinExpressOptions {
   store: TorrinUploadStore;
 
   // Optional
-  defaultChunkSize?: number;    // Default: 1MB
-  maxChunkSize?: number;        // Default: 100MB
-  uploadTtlMs?: number;         // Default: 24 hours
+  defaultChunkSize?: number; // Default: 1MB
+  maxChunkSize?: number; // Default: 100MB
+  uploadTtlMs?: number; // Default: 24 hours
 
   // Lifecycle hooks
   onBeforeInit?(req: Request, res: Response): Promise<void> | void;
@@ -57,13 +57,13 @@ interface TorrinExpressOptions {
 
 The router creates these endpoints:
 
-| Method | Path | Description |
-|--------|------|-------------|
-| `POST` | `/` | Initialize upload |
-| `PUT` | `/:uploadId/chunks/:index` | Upload chunk |
-| `GET` | `/:uploadId/status` | Get upload status |
-| `POST` | `/:uploadId/complete` | Complete upload |
-| `DELETE` | `/:uploadId` | Abort upload |
+| Method   | Path                       | Description       |
+| -------- | -------------------------- | ----------------- |
+| `POST`   | `/`                        | Initialize upload |
+| `PUT`    | `/:uploadId/chunks/:index` | Upload chunk      |
+| `GET`    | `/:uploadId/status`        | Get upload status |
+| `POST`   | `/:uploadId/complete`      | Complete upload   |
+| `DELETE` | `/:uploadId`               | Abort upload      |
 
 ## Lifecycle Hooks
 
@@ -255,4 +255,4 @@ import type { TorrinExpressOptions } from "@torrin/server-express";
 
 ## License
 
-Apache-2.0
+[Apache-2.0](LICENSE)
